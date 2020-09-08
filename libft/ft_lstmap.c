@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/07/13 17:13:06 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/13 20:04:28 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*head;
+	t_list	*current;
 
-#endif
+	if (lst == NULL)
+		return (NULL);
+	head = f(lst);
+	current = head;
+	while (lst->next)
+	{
+		lst = lst->next;
+		current->next = f(lst);
+		if (current->next == NULL)
+		{
+			free(current->next);
+			return (NULL);
+		}
+		current = current->next;
+	}
+	return (head);
+}

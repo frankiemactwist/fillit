@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/07/13 14:38:31 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/13 14:51:29 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-#endif
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+{
+	if (*alst && alst && del)
+	{
+		while ((*alst)->next)
+			ft_lstdelone(&(*alst)->next, del);
+		ft_lstdelone(&(*alst), del);
+	}
+}

@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:08:23 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/07 20:09:31 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+	unsigned char		*d;
+	unsigned char		*s;
 
-#endif
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (0 < n && *s != (unsigned char)c)
+	{
+		*d = *s;
+		d++;
+		s++;
+		n--;
+	}
+	if (0 < n)
+	{
+		*d = *s;
+		d++;
+		return ((void*)d);
+	}
+	return (NULL);
+}

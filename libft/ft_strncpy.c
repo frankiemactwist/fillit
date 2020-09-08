@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:08:38 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/07 14:41:53 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	size_t		i;
+	char		*d;
+	const char	*s;
 
-#endif
+	i = 0;
+	d = dest;
+	s = src;
+	while (i < n && src[i] != '\0')
+	{
+		d[i] = s[i];
+		i++;
+	}
+	while (i < n)
+	{
+		d[i] = '\0';
+		i++;
+	}
+	return (dest);
+}

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:12:20 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/15 18:01:04 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char	*t1;
+	unsigned char	*t2;
 
-#endif
+	t1 = (unsigned char *)s1;
+	t2 = (unsigned char *)s2;
+	while (*t1 == *t2 && *t1 != '\0')
+	{
+		t1++;
+		t2++;
+	}
+	if (*t1 != *t2)
+		return (*t1 - *t2);
+	else
+		return (0);
+}

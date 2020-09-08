@@ -6,11 +6,13 @@
 #    By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/07 16:27:54 by fpitkaja          #+#    #+#              #
-#    Updated: 2020/09/07 16:36:46 by fpitkaja         ###   ########.fr        #
+#    Updated: 2020/09/08 12:15:46 by fpitkaja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
+
+FLAGS = gcc -c -Wall -Wextra -Werror
 
 SRC = 
 
@@ -23,12 +25,14 @@ all: $(NAME)
 $(NAME): $(OBS)
 
 $(OBS): $(SRC) $(HEADER)
-	gcc -c -Wall -Wextra -Werror $(SRC)
+	$(FLAGS) $(SRC)
 
 clean:
+	rm -f $(OBS)
 
-fclean:
+fclean: clean
+	rm -f $(NAME)
 
-re:
+re: fclean all
 
 .PHONY: clean fclean all re

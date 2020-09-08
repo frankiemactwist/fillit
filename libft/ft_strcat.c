@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:09:00 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/07 19:32:20 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+char	*ft_strcat(char *dest, const char *src)
+{
+	size_t	i;
+	size_t	d;
 
-#endif
+	i = 0;
+	d = ft_strlen(dest);
+	while (src[i] != '\0')
+	{
+		dest[d] = src[i];
+		i++;
+		d++;
+	}
+	dest[d] = '\0';
+	return (dest);
+}

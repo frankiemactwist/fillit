@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:25:46 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/07 14:40:12 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*sub;
 
-#endif
+	if (s == 0)
+		return (NULL);
+	sub = ft_strnew(len);
+	if (sub == 0)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		sub[i] = s[start];
+		i++;
+		start++;
+	}
+	return (sub);
+}

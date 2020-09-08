@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/07/07 16:41:25 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/07 16:50:41 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+size_t	ft_intlen(int n)
+{
+	int	res;
 
-#endif
+	res = 0;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			res++;
+			n = -147483648;
+		}
+		res++;
+		n = -n;
+	}
+	if (n == 0)
+	{
+		res = 1;
+	}
+	while (n > 0)
+	{
+		res++;
+		n = n / 10;
+	}
+	return (res);
+}

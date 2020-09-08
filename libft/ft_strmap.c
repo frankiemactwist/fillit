@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:46:25 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/08 12:17:20 by fpitkaja         ###   ########.fr       */
+/*   Created: 2020/06/09 23:22:05 by fpitkaja          #+#    #+#             */
+/*   Updated: 2020/07/05 21:31:11 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "libft/libft.h"
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*tmp;
+	size_t	i;
 
-#endif
+	i = 0;
+	tmp = ft_strnew(ft_strlen(s));
+	if (tmp == 0)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		tmp[i] = f(s[i]);
+		i++;
+	}
+	return (tmp);
+}
