@@ -6,13 +6,13 @@
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 20:12:36 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/07/15 18:21:52 by fpitkaja         ###   ########.fr       */
+/*   Updated: 2020/09/10 21:37:28 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 10
+# define BUFF_SIZE 8
 # define FD_MAX 4096
 # include <unistd.h>
 # include <string.h>
@@ -88,6 +88,6 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int        get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 
 #endif
