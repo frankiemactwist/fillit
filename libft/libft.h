@@ -6,13 +6,13 @@
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 20:12:36 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/09/10 21:37:28 by fpitkaja         ###   ########.fr       */
+/*   Updated: 2020/09/25 15:58:10 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 8
+# define BUFF_SIZE 10
 # define FD_MAX 4096
 # include <unistd.h>
 # include <string.h>

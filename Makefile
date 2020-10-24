@@ -6,7 +6,7 @@
 #    By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/07 16:27:54 by fpitkaja          #+#    #+#              #
-#    Updated: 2020/09/14 13:56:42 by fpitkaja         ###   ########.fr        #
+#    Updated: 2020/10/23 01:07:48 by fpitkaja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = main.c
+SRC = main.c chekfile.c makecoords.c move.c solver.c
 
 OBS = $(SRC:.c=.o)
 
