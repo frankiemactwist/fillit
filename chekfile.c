@@ -6,7 +6,7 @@
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:36:41 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/10/23 15:27:32 by fpitkaja         ###   ########.fr       */
+/*   Updated: 2020/10/25 14:50:23 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		check_dotnhash(char *buf, int c, int c2, int c3)
 	int		i;
 
 	i = 0;
-	while (buf[i] != '\0')
+	while (i < 20)
 	{
 		if (buf[i] != c && buf[i] != c2 && buf[i] != c3)
 			return (-1);
@@ -60,13 +60,13 @@ static int		valid_tetro(char *buf)
 	{
 		if (buf[i] == '#')
 		{
-			if (buf[i + 1] == '#')
+			if (i + 1 <= 18 && buf[i + 1] == '#')
 				con++;
-			if (buf[i - 1] == '#')
+			if (i - 1 >= 0 && buf[i - 1] == '#')
 				con++;
-			if (buf[i + 5] == '#')
+			if (i + 5 <= 18 && buf[i + 5] == '#')
 				con++;
-			if (buf[i - 5] == '#')
+			if (i - 5 >= 0 && buf[i - 5] == '#')
 				con++;
 		}
 		i++;
