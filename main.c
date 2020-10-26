@@ -6,7 +6,7 @@
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 17:00:35 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/10/24 21:55:38 by fpitkaja         ###   ########.fr       */
+/*   Updated: 2020/10/26 17:13:46 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static int	count_pieces(t_piece *plist)
 		plist = plist->next;
 		count++;
 	}
+	count++;
 	return (count);
 }
 
@@ -56,6 +57,7 @@ void	solve(t_piece *plist)
 	char	**square;
 
 	side = 0;
+
 	while (side * side < (count_pieces(plist) * 4))
 		side++;
 	square = NULL;
@@ -80,6 +82,8 @@ int		main(int argc, char **argv)
 		return (usage());
 	if ((plist = coordinate(argv[1])) != NULL)
 	{
+		if (count_pieces(plist) > 26)
+			return (rerror());
 		solve(plist);
 		free_pieces(plist);
 		return (0);

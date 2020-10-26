@@ -6,7 +6,7 @@
 /*   By: fpitkaja <fpitkaja@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:36:41 by fpitkaja          #+#    #+#             */
-/*   Updated: 2020/10/25 14:50:23 by fpitkaja         ###   ########.fr       */
+/*   Updated: 2020/10/26 17:26:06 by fpitkaja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static int		char_countter(char *buf)
 		if (buf[i] == '#')
 			count++;
 		if (buf[i] == '\n' && buf[i + 2] == '\n')
+			return (-1);
+		if (buf[i] != '\n' && buf[i + 1] == '\0')
 			return (-1);
 		i++;
 	}
@@ -82,10 +84,10 @@ int		fvalid(char *buf, int ret)
 	int		i;
 
 	i = 0;
-	if (check_dotnhash(buf, '.', '#', '\n') == -1)
-		return (0);
 	while (i <= ret)
 	{
+		if (check_dotnhash(buf + i, '.', '#', '\n') == -1)
+			return (0);
 		if (char_countter(buf + i) == -1)
 			return (0);
 		if (valid_tetro(buf + i) == -1)
