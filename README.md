@@ -5,6 +5,9 @@ The goal of this project is to make an backtracking algorithm that arranges tetr
 ## Compiling
 Running `make` you get an executable called `fillit`.
 
+## Usage
+`./fillit [test_file]`
+
 ## Example of valid file containing tetriminos:
 ```
 ..#.
