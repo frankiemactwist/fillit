@@ -82,7 +82,7 @@ int		main(int argc, char **argv)
 		return (usage());
 	if ((plist = coordinate(argv[1])) != NULL)
 	{
-		if (count_pieces(plist) > 26)
+		if (count_pieces(plist) > 27)
 			return (rerror());
 		solve(plist);
 		free_pieces(plist);
