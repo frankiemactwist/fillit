@@ -27,5 +27,5 @@ Running `make` you get an executable called `fillit`.
 ABB.
 ABCC
 ABCC
-AB..
+A...
 ```
